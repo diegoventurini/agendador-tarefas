@@ -14,3 +14,5 @@ public interface UsuarioClient {
     UsuarioDTO buscarUsuarioPorEmail(@RequestParam("email") String email,
                                      @RequestHeader("Authorization") String token);
 }
+
+
