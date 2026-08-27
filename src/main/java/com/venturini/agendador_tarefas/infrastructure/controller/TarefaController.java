@@ -2,10 +2,10 @@ package com.venturini.agendador_tarefas.infrastructure.controller;
 
 import com.venturini.agendador_tarefas.business.TarefaService;
 import com.venturini.agendador_tarefas.business.dto.TarefaDTO;
+import com.venturini.agendador_tarefas.infrastructure.enums.StatusNotificacaoEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -36,6 +36,24 @@ public class TarefaController {
             @RequestHeader("Authorization") String token) {
 
         return ResponseEntity.ok(tarefaService.buscaListaTarefaPorEmail(token));
-
     }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deletarTarefaPorId(@RequestParam("id") String id){
+        tarefaService.deletaTarefaPorId(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @PatchMapping
+    public ResponseEntity<TarefaDTO> alterarStatusNotificacao(@RequestParam("status")StatusNotificacaoEnum statusNotificacaoEnum,
+                                                              @RequestParam("id") String id) {
+        return ResponseEntity.ok(tarefaService.alteraStatusNotificacao(statusNotificacaoEnum, id));
+    }
+
+    @PutMapping
+    public ResponseEntity<TarefaDTO> atualizarTarefas(@RequestBody TarefaDTO tarefaDTO,
+                                                      @RequestParam("id") String id) {
+        return ResponseEntity.ok(tarefaService.updateTarefas(tarefaDTO, id));
+    }
+
 }
