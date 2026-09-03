@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients // Habilita o FeignClients no MAIN
+@EnableFeignClients // Habilitar o FeignClients no MAIN
 public class AgendadorTarefasApplication {
 
 	public static void main(String[] args) {
