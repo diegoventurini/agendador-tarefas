@@ -1,6 +1,6 @@
 package com.venturini.agendador_tarefas.infrastructure.repository;
 
-import com.venturini.agendador_tarefas.business.dto.TarefaDTO;
+import com.venturini.agendador_tarefas.business.dto.TarefaDTORecord;
 import com.venturini.agendador_tarefas.infrastructure.entity.TarefaEntity;
 import com.venturini.agendador_tarefas.infrastructure.enums.StatusNotificacaoEnum;
 import org.springframework.data.mongodb.repository.MongoRepository;
